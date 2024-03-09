@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
-#include<Windows.h> // 包含操作Windows系统所需的函数
+#include<Windows.h>  // 包含操作Windows系统所需的函数
 #include<time.h>    // 包含时间相关的函数
 #include<conio.h>   // 包含控制台输入输出的函数
 int maphigh = 28, mapwide = 84; // 定义地图的高和宽
@@ -203,7 +203,7 @@ void keydown()//3.按键
 	gotoxy(snake.x[0], snake.y[0]);
 	printf("*");
 	gotoxy(mapwide + 2, 0);//将光标移走
-}
+} 
 int snakestatus()//4.蛇的状态
 {
 	if ((snake.x[0] == 0 || snake.x[0] == mapwide) || (snake.y[0] == 0 || snake.y[0] == maphigh))
