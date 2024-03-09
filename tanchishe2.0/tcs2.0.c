@@ -1,45 +1,45 @@
 #include<stdio.h>
 #include<stdlib.h>
-#include<Windows.h>
-#include<time.h>
-#include<conio.h>
-int maphigh = 28, mapwide = 84;
+#include<Windows.h> // 包含操作Windows系统所需的函数
+#include<time.h>    // 包含时间相关的函数
+#include<conio.h>   // 包含控制台输入输出的函数
+int maphigh = 28, mapwide = 84; // 定义地图的高和宽
 struct virus
 {
-	int x;
-	int y;
+	int x; // 病毒的x坐标
+	int y; // 病毒的y坐标
 }virus;
-unsigned short snakesize = 50, speed = 400, len = 4;
+unsigned short snakesize = 50, speed = 400, len = 4; // 定义蛇的最大长度、速度和初始长度
 struct snake
 {
-	int x[50];
-	int y[50];
-	int len;//蛇的长度
-	int speed;//蛇的速度
- 
+	int x[50]; // 存储蛇每个部分的x坐标
+	int y[50]; // 存储蛇每个部分的y坐标
+	int len;   // 蛇的长度
+	int speed; // 蛇的速度
 }snake;
-int key = 'w';//初始化方向
-void gotoxy(int x, int y);
-void drawmap();
-void keydown();
-void creatvirus();
-int snakestatus();
-void startgame();
-int menuselect();
-void goodbye();
-void introduce();
-void edition();
-int setup();
-void respect();
-int setup1();
-int modifydiffculty();
-void diffculty();
-int customize();
-void customize1();
+int key = 'w'; // 初始化蛇的移动方向为向上
+void gotoxy(int x, int y); // 声明光标移动到(x, y)位置的函数
+void drawmap();            // 声明绘制地图的函数
+void keydown();            // 声明按键处理函数
+void creatvirus();         // 声明创建病毒的函数
+int snakestatus();         // 声明检查蛇状态的函数
+void startgame();          // 声明开始游戏的函数
+int menuselect();          // 声明菜单选择的函数
+void goodbye();            // 声明结束游戏的函数
+void introduce();          // 声明游戏介绍的函数
+void edition();            // 声明游戏版本的函数
+int setup();               // 声明游戏设置的函数
+void respect();            // 声明游戏胜利后尊重玩家的函数
+int setup1();              // 声明设置菜单的函数
+int modifydiffculty();     // 声明修改难度的函数
+void diffculty();          // 声明难度设置的函数
+int customize();           // 声明自定义设置的函数
+void customize1();         // 声明自定义设置菜单的函数
+void colors();             // 声明更改颜色的函数
 int main()
 {
 	for (;;)
-	{
+	{ 
 		system("cls");//清屏
 		switch (menuselect())
 		{
@@ -294,11 +294,11 @@ void respect()
 	gotoxy(0, 4);
 	printf("\t\t*恭喜你获得游戏的胜利*\n\n");
 	Sleep(1000);
-	printf("\t\t*您在游戏中所获得的快乐*\n\n");
+	printf("\t\t*终于完成的程序实践作业*\n\n");
 	Sleep(1000);
-	printf("\t\t*就是对我们最大的鼓励*\n\n");
+	printf("\t\t*希望老师能给我高一点的分数*\n\n");
 	Sleep(1000);
-	printf("\t\t*希望您在生活中也同样成功*\n\n");
+	printf("\t\t*希望自己的技术能越来越好*\n\n");
 	Sleep(2000);
   printf("\t\t*     再来一局吧！       *\n\n");
   Sleep(2000);
