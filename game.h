@@ -43,5 +43,5 @@ void diffculty();
 int customize();
 void customize1();
 void colors();
-
+void cutsnake(int k);
 #endif // GAME_H

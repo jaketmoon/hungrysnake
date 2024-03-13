@@ -15,7 +15,7 @@ void keydown();            // 声明按键处理函数
 void creatvirus();         // 声明创建病毒的函数
 int snakestatus();         // 声明检查蛇状态的函数
 void respect();            // 声明游戏胜利后尊重玩家的函数
-
+void cutsnake(int k);	  // 声明蛇被切断后的函数
 void goodbye();            // 声明结束游戏的函数
 void introduce();          // 声明游戏介绍的函数
 void edition();            // 声明游戏版本的函数

@@ -5,11 +5,10 @@
 #include<conio.h>   // 包含控制台输入输出的函数
 #include "game.h"   // 包含游戏的函数
 //void gotoxy(int x, int y); // 声明光标移动到(x, y)位置的函数
-//void drawmap();            // 声明绘制地图的函数
 //void keydown();            // 声明按键处理函数
-//void creatvirus();         // 声明创建病毒的函数
 //int snakestatus();         // 声明检查蛇状态的函数
 //void respect();            // 声明游戏胜利后尊重玩家的函数
+//void cutsnake();           // 声明蛇被切断后的函数
 void keydown()//3.按键
 {
 	int i, temp;
@@ -72,7 +71,7 @@ int snakestatus()//4.蛇的状态
 	for (int k = 1; k < snake.len; k++)
 	{
 		if (snake.x[0] == snake.x[k] && snake.y[0] == snake.y[k])
-			return 0;
+			cutsnake(k);
 	}
 	return 1;
 }
@@ -114,3 +113,10 @@ void respect()
 	startgame();
 }
 
+void cutsnake(int k){
+	for(int i=snake.len-1;i>=k;i--){
+		gotoxy(snake.x[i],snake.y[i]);
+		printf("  ");
+		snake.len--;
+	}
+}
