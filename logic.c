@@ -4,6 +4,12 @@
 #include<time.h>    // 包含时间相关的函数
 #include<conio.h>   // 包含控制台输入输出的函数
 #include "game.h"   // 包含游戏的函数
+//void gotoxy(int x, int y); // 声明光标移动到(x, y)位置的函数
+//void drawmap();            // 声明绘制地图的函数
+//void keydown();            // 声明按键处理函数
+//void creatvirus();         // 声明创建病毒的函数
+//int snakestatus();         // 声明检查蛇状态的函数
+//void respect();            // 声明游戏胜利后尊重玩家的函数
 void keydown()//3.按键
 {
 	int i, temp;

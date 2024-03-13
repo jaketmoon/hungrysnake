@@ -3,6 +3,8 @@
 #include <time.h>
 struct virus virus;
 struct snake snake;
+//void drawmap();//1.画地图
+//void creatvirus();//2.产生病毒
 void drawmap()//1.画地图
 {
 	//●: 食物   █：蛇身(占用两个字符）
