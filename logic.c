@@ -9,6 +9,7 @@
 //int snakestatus();         // 声明检查蛇状态的函数
 //void respect();            // 声明游戏胜利后尊重玩家的函数
 //void cutsnake();           // 声明蛇被切断后的函数
+//int ifbarrier();          // 声明检查蛇是否撞到障碍物的函数
 void keydown()//3.按键
 {
 	int i, temp;
@@ -68,6 +69,8 @@ int snakestatus()//4.蛇的状态
 {
 	if ((snake.x[0] == 0 || snake.x[0] == mapwide) || (snake.y[0] == 0 || snake.y[0] == maphigh))
 		return 0;
+	if (ifbarrier() == 0)
+		return 0;
 	for (int k = 1; k < snake.len; k++)
 	{
 		if (snake.x[0] == snake.x[k] && snake.y[0] == snake.y[k])
@@ -119,4 +122,13 @@ void cutsnake(int k){
 		printf("  ");
 		snake.len--;
 	}
+}
+int ifbarrier()
+{
+	for (int i = 0; i < 10; i++)
+	{
+		if (snake.x[0] == barrier.x[i] && snake.y[0] == barrier.y[i])
+			return 0;
+	}
+	return 1;
 }

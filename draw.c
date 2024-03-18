@@ -3,8 +3,10 @@
 #include <time.h>
 struct virus virus;
 struct snake snake;
+struct barrier barrier;
 //void drawmap();//1.画地图
 //void creatvirus();//2.产生病毒
+//void createbarrier();//3.产生障碍物
 void drawmap()//1.画地图
 {
 	//●: 食物   █：蛇身(占用两个字符）
@@ -53,6 +55,25 @@ srand((unsigned int)time(NULL));//随机病毒出现的位置
 	printf("●");
 	gotoxy(mapwide + 4, maphigh);
  
+}
+void createbarrier()//3.随机产生障碍物
+{
+	int i;
+	for (i = 0; i < 10; i++)
+	{
+		int x, y;
+		while (1)
+		{
+			x = rand() % (mapwide - 4) + 2;
+			y = rand() % (maphigh - 2) + 1;
+			if (x % 2 == 0 && (x != virus.x || y != virus.y))
+				break;
+		}
+		gotoxy(x, y);
+		barrier.x[i] = x;
+		barrier.y[i] = y;
+		printf("█");          
+	}
 }
 void creatvirus()//2.产生病毒
 {

@@ -10,13 +10,16 @@ extern struct virus virus;
 extern struct snake snake;
 extern unsigned short snakesize, speed, len;
 extern int key;
-
+extern struct barrier barrier;
 // 数据结构声明
 struct virus {
 	int x;
 	int y;
 };
-
+struct barrier {
+	int x[10];
+	int y[10];
+};
 struct snake {
 	int x[50];
 	int y[50];

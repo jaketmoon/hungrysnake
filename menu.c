@@ -59,6 +59,7 @@ void edition()
 {
 	system("cls");
 	drawmap();
+	createbarrier();
 	while (1)
 	{
 		creatvirus();
