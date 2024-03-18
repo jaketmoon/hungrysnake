@@ -14,6 +14,7 @@ void diffculty();          // 声明难度设置的函数
 int customize();           // 声明自定义设置的函数
 void customize1();         // 声明自定义设置菜单的函数 */
 
+int max;
 void goodbye()
 {
 	system("cls");
@@ -60,6 +61,8 @@ void edition()
 	system("cls");
 	drawmap();
 	createbarrier();
+	max=0;
+	ReadGrade();//从文件读取最高分到max变量
 	while (1)
 	{
 		creatvirus();
@@ -68,7 +71,20 @@ void edition()
 		if (!snakestatus())//判断死亡时snakestaus为0,
 		{
 			gotoxy(mapwide / 2, maphigh / 2);
-			printf("Game Over");
+			printf("Game Over\n");
+			if (snake.len > max)
+			{
+				printf("恭喜你打破最高记录，最高记录更新为%d", snake.len);
+				WriteGrade();//更新最高记录
+			}
+			else if (snake.len == max)
+			{
+				printf("与最高记录持平，加油再创佳绩", snake.len);
+			}
+			else
+			{
+				printf("请继续加油，当前与最高记录相差%d", max - snake.len);
+			}
 			key = 'w';
 			getchar();
 			getchar();
@@ -76,6 +92,7 @@ void edition()
 		}
 		if (snake.len == snakesize)
 		{
+			WriteGrade();//更新最高记录
 			gotoxy(mapwide / 3, maphigh / 2);
 			printf("恭喜您消灭了全部病毒，胜利(＾－＾)V");
 			getchar();

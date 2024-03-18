@@ -10,6 +10,9 @@
 //void respect();            // 声明游戏胜利后尊重玩家的函数
 //void cutsnake();           // 声明蛇被切断后的函数
 //int ifbarrier();          // 声明检查蛇是否撞到障碍物的函数
+//void ReadGrade();         //从文件读取最高分
+//void WriteGrade()        //更新最高分到文件
+int max;//最高分
 void keydown()//3.按键
 {
 	int i, temp;
@@ -131,4 +134,30 @@ int ifbarrier()
 			return 0;
 	}
 	return 1;
+}
+void ReadGrade()
+{
+	FILE* pf;
+	pf= fopen("C:\\Users\\19858\\Desktop\test\\新建文件夹\\hungrysnake-1\\max.txt", "r"); //以只读的方式打开文件
+	if (pf == NULL) //打开文件失败
+	{
+		pf = fopen("C:\\Users\\19858\\Desktop\\test\\新建文件夹\\hungrysnake-1\\max.txt", "w"); //以只写的方式打开文件
+		fwrite(&max, sizeof(int), 1, pf); //将max写入文件（此时max为0），即将最高得分初始化为0
+	}
+	fseek(pf, 0, SEEK_SET); //使文件指针pf指向文件开头
+	fread(&max, sizeof(int), 1, pf); //读取文件当中的最高得分到max当中
+	fclose(pf); //关闭文件
+	pf = NULL; //文件指针及时置空
+}
+void WriteGrade()
+{
+	FILE* pf = fopen("C:\\Users\\19858\\Desktop\\test\\新建文件夹\\hungrysnake-1\\max.txt", "w"); //以只写的方式打开文件
+	if (pf == NULL) //打开文件失败
+	{
+		printf("保存最高得分记录失败\n");
+		exit(0);
+	}
+	fwrite(&snake.len, sizeof(int), 1, pf); //将本局游戏得分写入文件当中
+	fclose(pf); //关闭文件
+	pf = NULL; //文件指针及时置空
 }

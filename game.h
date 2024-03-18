@@ -11,6 +11,7 @@ extern struct snake snake;
 extern unsigned short snakesize, speed, len;
 extern int key;
 extern struct barrier barrier;
+extern int max;
 // 数据结构声明
 struct virus {
 	int x;
@@ -47,4 +48,6 @@ int customize();
 void customize1();
 void colors();
 void cutsnake(int k);
+void ReadGrade();
+void WriteGrade();
 #endif // GAME_H
