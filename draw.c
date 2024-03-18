@@ -4,12 +4,13 @@
 struct virus virus;
 struct snake snake;
 struct barrier barrier;
+int flag=1;
 //void drawmap();//1.画地图
 //void creatvirus();//2.产生病毒
 //void createbarrier();//3.产生障碍物
 void drawmap()//1.画地图
 {
-	//●: 食物   █：蛇身(占用两个字符）
+	//●,¥: 食物   █：蛇身(占用两个字符）
 
 srand((unsigned int)time(NULL));//随机病毒出现的位置
 	int i, k;
@@ -52,7 +53,12 @@ srand((unsigned int)time(NULL));//随机病毒出现的位置
 			break;
 	}
 	gotoxy(virus.x, virus.y);
-	printf("●");
+	if(flag==1){
+		printf("●");
+	}
+	else{
+		printf("+");
+	}
 	gotoxy(mapwide + 4, maphigh);
  
 }
@@ -80,7 +86,13 @@ void creatvirus()//2.产生病毒
 	if (snake.x[0] == virus.x && snake.y[0] == virus.y)
 	{
 		//printf("\a");//声音
-		snake.len++;
+		if(flag==1){
+			snake.len++;
+		}
+		else{
+			snake.len+=2;
+		}
+		flag=flag*(-1);
 		srand((unsigned)time(NULL));
 		while (1)
 		{
@@ -103,7 +115,12 @@ void creatvirus()//2.产生病毒
 		}
 	}
 	gotoxy(virus.x, virus.y);
-	printf("●");
+	if(flag==1){
+		printf("●");
+	}
+	else{
+		printf("+");
+	}
 	gotoxy(mapwide + 8, 0);//将光标移走
 	printf("W");
 	gotoxy(mapwide + 6, 1);
