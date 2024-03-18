@@ -43,15 +43,16 @@ void edition()
 	system("cls");
 	gotoxy(0, 4);
 	printf("\t\t\t\t*********************************************\n\n");
-	printf("\t\t\t\t*                版本号： 1.1               *\n\n");
+	printf("\t\t\t\t*                版本号： 1.2              *\n\n");
 	printf("\t\t\t\t*                                           *\n\n");
 	printf("\t\t\t\t*        更新：1.修复了不能清屏的问题     *\n\n");
 	printf("\t\t\t\t*              2.修复了重复游戏时突然暴毙的问题         *\n\n");
-	printf("\t\t\t\t*              3.新增了更改速度功能       *\n\n");
+	printf("\t\t\t\t*              3.新增了蛇撞到自己会截掉自己的功能       *\n\n");
 	printf("\t\t\t\t*                                           *\n\n");
 	printf("\t\t\t\t*********************************************\n\n");
 	printf("\t\t\t\t\tEnter返回主菜单");
 	getchar();
+	
 	getchar();
 }
  void startgame()
