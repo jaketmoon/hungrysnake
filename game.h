@@ -12,6 +12,7 @@ extern unsigned short snakesize, speed, len;
 extern int key;
 extern struct barrier barrier;
 extern int max;
+extern int flag;
 // 数据结构声明
 struct virus {
 	int x;
